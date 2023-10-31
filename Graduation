@@ -1,3 +1,52 @@
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY,
+    Name VARCHAR(255),
+    Age INT,
+    LoyaltyProgramID VARCHAR(10),
+    PaymentMethod VARCHAR(20)
+);
+CREATE TABLE Order (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderDateTime DATETIME,
+    EstimatedPickupTime DATETIME,
+    TotalAmount DECIMAL(10, 2),
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+);
+CREATE TABLE Product (
+    ProductID INT PRIMARY KEY,
+    Name VARCHAR(255),
+    Description TEXT,
+    Price DECIMAL(10, 2)
+);
+CREATE TABLE Payment (
+    PaymentID INT PRIMARY KEY,
+    OrderID INT,
+    Amount DECIMAL(10, 2),
+    PaymentMethod VARCHAR(20),
+    FOREIGN KEY (OrderID) REFERENCES Order(OrderID)
+);
+CREATE TABLE Barista (
+    BaristaID INT PRIMARY KEY,
+    Name VARCHAR(255)
+);
+CREATE TABLE Inventory (
+    IngredientID INT PRIMARY KEY,
+    Name VARCHAR(255),
+    StockLevel INT
+);
+CREATE TABLE Feedback (
+    FeedbackID INT PRIMARY KEY,
+    CustomerID INT,
+    OrderID INT,
+    FeedbackText TEXT,
+    Rating INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    FOREIGN KEY (OrderID) REFERENCES Order(OrderID)
+);
+
+
+
 -- Insert data into the Customer table
 INSERT INTO Customer (CustomerID, Name, Age, LoyaltyProgramID, PaymentMethod)
 VALUES
