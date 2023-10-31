@@ -1,0 +1,62 @@
+-- Insert data into the Customer table
+INSERT INTO Customer (CustomerID, Name, Age, LoyaltyProgramID, PaymentMethod)
+VALUES
+    (12345, 'Khalid', 17, '54322', 'Mada'),
+    (12341, 'Ahmed', 22, '54311', 'Visa'),
+    (12342, 'Mohammed', 25, '54312', 'Mastercard'),
+    (12343, 'Fahad', 18, '54321', 'ApplePay'),
+    (12344, 'Turki', 19, '54671', 'ApplePay');
+
+-- Insert data into the Order table
+INSERT INTO Order (OrderID, CustomerID, OrderDateTime, EstimatedPickupTime, TotalAmount)
+VALUES
+    (456, 12345, '2023-01-01 16:30:00', '2023-01-01 16:30:00', 19.00),
+    (454, 12341, '2023-12-02 14:30:00', '2023-12-02 14:30:00', 55.00),
+    (457, 12342, '2023-09-04 22:22:00', '2023-09-04 22:22:00', 30.00),
+    (458, 12343, '2023-02-27 03:12:00', '2023-02-27 03:12:00', 22.00),
+    (489, 12344, '2023-09-28 01:05:00', '2023-09-28 01:05:00', 70.00);
+
+-- Insert data into the Product table
+INSERT INTO Product (ProductID, Name, Description, Price)
+VALUES
+    (999, 'Ice Americano', 'Drink', 16.00),
+    (987, 'Frappuccino', 'Drink', 20.00),
+    (988, 'Red Velvet Cake', 'Food', 24.00),
+    (966, 'Pecan Cake', 'Food', 24.00),
+    (912, 'Chicken Sandwich', 'Food', 20.00);
+
+-- Insert data into the Payment table
+INSERT INTO Payment (PaymentID, OrderID, Amount, PaymentMethod)
+VALUES
+    (789, 456, 19.00, 'Mada'),
+    (765, 454, 55.00, 'Visa'),
+    (756, 457, 30.00, 'Mastercard'),
+    (734, 458, 22.00, 'ApplePay'),
+    (712, 489, 70.00, 'ApplePay');
+
+-- Insert data into the Barista table
+INSERT INTO Barista (BaristaID, Name)
+VALUES
+    (11543, 'Sarah'),
+    (11234, 'Faisal'),
+    (11789, 'Abdullah'),
+    (11540, 'Anas'),
+    (11433, 'Nourah');
+
+-- Insert data into the Inventory table
+INSERT INTO Inventory (IngredientID, Name, StockLevel)
+VALUES
+    (2345, 'CoffeeBeans', 50),
+    (2341, 'Chicken Sandwich', 7),
+    (2312, 'Red Velvet Cake', 10),
+    (2378, 'Pecan Cake', 5),
+    (2397, 'Tuna Sandwich', 3);
+
+-- Insert data into the Feedback table
+INSERT INTO Feedback (FeedbackID, CustomerID, OrderID, FeedbackText, Rating)
+VALUES
+    (693, 12345, 456, 'Delicious', '5/5'),
+    (665, 12341, 454, 'Tasty', '4/5'),
+    (688, 12342, 457, 'Bad', '1/5'),
+    (612, 12343, 458, 'Good', '3.5/5'),
+    (645, 12344, 489, 'Meh', '2/5');
